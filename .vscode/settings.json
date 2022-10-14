@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "sl651_data.h": "c",
+        "stdlib.h": "c",
+        "sl651_hex_data.h": "c"
+    }
+}

@@ -382,7 +382,7 @@ static void seriled_sl651_head(unsigned char* buf, sl651_setting_t* sl, FUNC_COD
     //密码
     buf[8] = ((sl->passwd) >> 8) & 0xff;
     buf[9] = (sl->passwd) & 0xff;
-
+    
     //功能码
     buf[10] = Func_Code[code];
 

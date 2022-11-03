@@ -14,7 +14,9 @@ void init_datas(void)
     setting_sl.master_st = 0x02;
     setting_sl.passwd = 0xFFFF;
     setting_sl.st = RIVER_ST;
-    setting_sl.remote_st = 2208090003;
+
+    sscanf("2208090003", "%lx", &setting_sl.remote_st);
+    // setting_sl.remote_st = 2208090003;
 
     printf("master:%02X  passwd:%04X st:%02X  remote_st:%02X%08X\r\n", setting_sl.master_st, setting_sl.passwd, setting_sl.st, 
     (int)((setting_sl.remote_st)>>32) & 0xFF, (int)(setting_sl.remote_st) & 0xFFFFFFFF);

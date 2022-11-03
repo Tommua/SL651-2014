@@ -373,11 +373,11 @@ static void seriled_sl651_head(unsigned char* buf, sl651_setting_t* sl, FUNC_COD
     buf[2] = sl->master_st;
 
     //遥测站地址
-    buf[3] = dec2bcd(sl->remote_st / 100000000 % 100);
-    buf[4] = dec2bcd(sl->remote_st / 1000000 % 100);
-    buf[5] = dec2bcd(sl->remote_st / 10000 % 100);
-    buf[6] = dec2bcd(sl->remote_st / 100 % 100);
-    buf[7] = dec2bcd(sl->remote_st % 100);
+    buf[3] = (sl->remote_st >> 32) & 0xff;
+    buf[4] = (sl->remote_st >> 24) & 0xff;
+    buf[5] = (sl->remote_st >> 16) & 0xff;
+    buf[6] = (sl->remote_st >> 8) & 0xff;
+    buf[7] = sl->remote_st & 0xff;
 
     //密码
     buf[8] = ((sl->passwd) >> 8) & 0xff;
